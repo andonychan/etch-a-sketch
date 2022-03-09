@@ -1,4 +1,6 @@
 let color = 'black'
+let click = true;
+
 
 function createBoard(size) {
     let gridbox = document.querySelector('.gridbox');
@@ -21,17 +23,20 @@ createBoard(16);
 
 function changeSize(input) {
     if (input >= 1 && input <= 100) {
-    createBoard(input);
-    }
-    else {
-        console.log('error!');
-    };
+        document.querySelector('.error').style.display = 'none';
+        createBoard(input);
+        }
+        else {
+            document.querySelector('.error').style.display = 'flex';
+        };
 }
 
 function colorBox() {
-    if (color == 'random') {
-        this.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
-    } else {this.style.backgroundColor = color};
+    if (click) {
+        if (color == 'random') {
+            this.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+        } else {this.style.backgroundColor = color};
+    }
 }
 
 function changeColor(input) {
@@ -43,3 +48,23 @@ function resetBoard() {
     let box = gridbox.querySelectorAll('div');
     box.forEach((box) => box.style.backgroundColor = 'white');
 }
+
+// document.querySelector('body').addEventListener('click', () => {
+//     click = !click;
+//     if (!click) {
+//         document.querySelector('.mode').textContent = 'Mode: Not Drawing!';
+//     }
+//     else {document.querySelector('.mode').textContent = 'Mode: Drawing!'}
+// })
+
+document.querySelector('body').addEventListener('click', (e) => {
+    if (e.target.tagName != 'BUTTON') {
+        click = !click;
+        if (!click) {
+            document.querySelector('.mode').textContent = 'Mode: Not Drawing!';
+        }
+        else {
+            document.querySelector('.mode').textContent = 'Mode: Drawing!';
+        }
+    }
+})

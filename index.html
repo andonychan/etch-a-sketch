@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css" defer>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="container">
         <div class="title"><h1>Sketchy sktech!</h1></div>
         <div class="content">
+            <div class="mode">Mode: Drawing!</div>
             <div class="gridbox"></div>
             <div class="buttons">
                 <button onclick="changeColor('black')" class="black">Black</button>
@@ -20,6 +22,7 @@
             </div>
             <input type="text" value="16" onchange="changeSize(this.value)" />
             <button class="changeSize">Change!</button>
+            <div class="error" style="display: none">Input must be between 2-100!</div>
         </div>
     </div>
 </body>
