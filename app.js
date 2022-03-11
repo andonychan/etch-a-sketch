@@ -49,16 +49,9 @@ function resetBoard() {
     box.forEach((box) => box.style.backgroundColor = 'white');
 }
 
-// document.querySelector('body').addEventListener('click', () => {
-//     click = !click;
-//     if (!click) {
-//         document.querySelector('.mode').textContent = 'Mode: Not Drawing!';
-//     }
-//     else {document.querySelector('.mode').textContent = 'Mode: Drawing!'}
-// })
-
 document.querySelector('body').addEventListener('click', (e) => {
-    if (e.target.tagName != 'BUTTON') {
+    console.log(e);
+    if (e.target.tagName != 'BUTTON' && e.target.tagName != 'INPUT') {
         click = !click;
         if (!click) {
             document.querySelector('.mode').textContent = 'Mode: Not Drawing!';
